@@ -5,7 +5,7 @@ from app.core.config import setting
 
 Base=declarative_base()
 
-engine=create_engine(url=setting.DATABASE_URL)
+engine=create_engine(url=setting.DATABASE_URL, pool_pre_ping=True, pool_recycle=300)
 
 LocalSession=sessionmaker(bind=engine)
 
